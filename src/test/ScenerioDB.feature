@@ -1,3 +1,4 @@
+@SC
 Feature:Scenario DB
 
   Background:Database connection

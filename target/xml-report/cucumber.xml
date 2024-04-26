@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="6" time="16.9">
+    <testcase classname="As an administrator, I want to be able to create a new FAQ record via API connection." name="When a POST request containing valid authorization credentials and necessary information" time="4.764">
+        <system-out><![CDATA[* The api user constructs the base url with the "admin" token...............passed
+* The api user sets "api/faqsAdd" path parameters...........................passed
+* The api user adds a key field "title" with the value "newFaqTitle" to the request body.passed
+* The api user adds a key field "description" with the value "newFaqDescription" to the request body.passed
+* The api user sends the "post" request and saves the "Response"............passed
+* The api user verifies that for "post" request type the status code is 201 and the message information in the response body is "Faqs added successfully".passed
+]]></system-out>
+    </testcase>
+    <testcase classname="As an administrator, I want to be able to create a new FAQ record via API connection." name="The creation of the new FAQ record via the API should be verified through the API itself by sending a GET" time="2.353">
+        <system-out><![CDATA[* The api user constructs the base url with the "admin" token...............passed
+* The api user sets "api/faqsDetails" path parameters.......................passed
+* The api user adds a key field "id" with the value "added_item_id" to the request body.passed
+* The api user sends the "getbody" request and saves the "Response".........passed
+* The api user verifies that "added_item_id" returned in the response body by sending a GET request to the "faqsDetails" endpoint.passed
+]]></system-out>
+    </testcase>
+    <testcase classname="As an administrator, I want to be able to access the FAQ's list via API connection." name="When a GET request with valid authorization information is sent to the /api/refundReasonList endpoint" time="2.262">
+        <system-out><![CDATA[* The api user constructs the base url with the "admin" token...............passed
+* The api user sets "api/faqsList" path parameters..........................passed
+* The api user sends the "get" request and saves the "response".............passed
+* The api user verifies that for "get" request type the status code is 200 and the message information in the response body is "success".passed
+]]></system-out>
+    </testcase>
+    <testcase classname="As an administrator, I want to be able to access the FAQ's list via API connection." name="When a GET request with valid authorization information is sent to the /api/refundReasonList endpoint 2" time="2.014">
+        <system-out><![CDATA[* The api user constructs the base url with the "admin" token...............passed
+* The api user sets "api/faqsList" path parameters..........................passed
+* The api user sends the "get" request and saves the "response".............passed
+* The api user verifies that for "get" request type the status code is 200 and the message information in the response body is "success".passed
+]]></system-out>
+    </testcase>
+    <testcase classname="As an administrator, I want to be able to update the information" name="When a PATCH request containing valid authorization credentials, the FAQ id to be updated, and" time="3.272">
+        <system-out><![CDATA[* The api user constructs the base url with the "admin" token...............passed
+* The api user sets "api/faqsUpdate/120" path parameters....................passed
+* The api user adds a key field "title" with the value "updatedTitle" to the request body.passed
+* The api user adds a key field "description" with the value "updatedDescription" to the request body.passed
+* The api user sends the "patch" request and saves the "Response"...........passed
+* The api user verifies that for "patch" request type the status code is 202 and the message information in the response body is "faqs updated successfully".passed
+]]></system-out>
+    </testcase>
+    <testcase classname="As an administrator, I want to be able to delete the record specified by the FAQ's id via the API connection." name="When a DELETE request containing valid authorization credentials and the FAQ's id to be deleted is sent to the /api/faqsDelete endpoint," time="1.838">
+        <failure message="status code: 404, reason phrase: Not Found" type="io.restassured.internal.http.HttpResponseException"><![CDATA[* The api user constructs the base url with the "admin" token...............passed
+* The api user sets "api/faqsDelete" path parameters........................passed
+* The api user prepares a GET request containing the  190 for which details are to be accessed.passed
+* The api user sends the "delete" request and saves the "Response"..........failed
+* The api user verifies that for "delete" request type the status code is 202 and the message information in the response body is "faqs deleted successfully".skipped
+* The api user verifies that the Deleted id information in the response body is the same as the id information in the request body..skipped
+
+StackTrace:
+io.restassured.internal.http.HttpResponseException: status code: 404, reason phrase: Not Found
+	at io.restassured.internal.http.HTTPBuilder.defaultFailureHandler(HTTPBuilder.java:629)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:107)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1268)
+	at groovy.lang.MetaClassImpl.invokeMethodClosure(MetaClassImpl.java:1048)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1142)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1035)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at groovy.lang.Closure.call(Closure.java:428)
+	at groovy.lang.Closure$call$0.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:139)
+	at io.restassured.internal.RequestSpecificationImpl$RestAssuredHttpBuilder.doRequest(RequestSpecificationImpl.groovy:2098)
+	at io.restassured.internal.http.HTTPBuilder.doRequest(HTTPBuilder.java:497)
+	at io.restassured.internal.http.HTTPBuilder.request(HTTPBuilder.java:454)
+	at io.restassured.internal.http.HTTPBuilder$request$3.call(Unknown Source)
+	at io.restassured.internal.RequestSpecificationImpl.sendHttpRequest(RequestSpecificationImpl.groovy:1465)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:107)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1268)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1035)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:819)
+	at groovy.lang.GroovyObject.invokeMethod(GroovyObject.java:39)
+	at org.codehaus.groovy.runtime.callsite.PogoInterceptableSite.call(PogoInterceptableSite.java:45)
+	at org.codehaus.groovy.runtime.callsite.PogoInterceptableSite.callCurrent(PogoInterceptableSite.java:55)
+	at io.restassured.internal.RequestSpecificationImpl.sendRequest(RequestSpecificationImpl.groovy:1214)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:107)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1268)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1035)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:819)
+	at groovy.lang.GroovyObject.invokeMethod(GroovyObject.java:39)
+	at org.codehaus.groovy.runtime.callsite.PogoInterceptableSite.call(PogoInterceptableSite.java:45)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:166)
+	at io.restassured.internal.filter.SendRequestFilter.filter(SendRequestFilter.groovy:30)
+	at io.restassured.filter.Filter$filter$0.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
+	at io.restassured.filter.Filter$filter.call(Unknown Source)
+	at io.restassured.internal.filter.FilterContextImpl.next(FilterContextImpl.groovy:72)
+	at io.restassured.filter.time.TimingFilter.filter(TimingFilter.java:56)
+	at io.restassured.filter.Filter$filter.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
+	at io.restassured.filter.Filter$filter$0.call(Unknown Source)
+	at io.restassured.internal.filter.FilterContextImpl.next(FilterContextImpl.groovy:72)
+	at io.restassured.filter.FilterContext$next.call(Unknown Source)
+	at io.restassured.internal.RequestSpecificationImpl.applyPathParamsAndSendRequest(RequestSpecificationImpl.groovy:1686)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:107)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1268)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1035)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:819)
+	at groovy.lang.GroovyObject.invokeMethod(GroovyObject.java:39)
+	at org.codehaus.groovy.runtime.callsite.PogoInterceptableSite.call(PogoInterceptableSite.java:45)
+	at org.codehaus.groovy.runtime.callsite.PogoInterceptableSite.callCurrent(PogoInterceptableSite.java:55)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:203)
+	at io.restassured.internal.RequestSpecificationImpl.applyPathParamsAndSendRequest(RequestSpecificationImpl.groovy:1692)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:107)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1268)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1035)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:819)
+	at groovy.lang.GroovyObject.invokeMethod(GroovyObject.java:39)
+	at org.codehaus.groovy.runtime.callsite.PogoInterceptableSite.call(PogoInterceptableSite.java:45)
+	at org.codehaus.groovy.runtime.callsite.PogoInterceptableSite.callCurrent(PogoInterceptableSite.java:55)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:51)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:171)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:203)
+	at io.restassured.internal.RequestSpecificationImpl.delete(RequestSpecificationImpl.groovy:188)
+	at io.restassured.internal.RequestSpecificationImpl.delete(RequestSpecificationImpl.groovy)
+	at utilities.API_Utilities.API_Methods.deleteResponse(API_Methods.java:73)
+	at stepdefinitions.API_Stepdefinitions.the_api_user_sends_the_request_and_saves_the(API_Stepdefinitions.java:272)
+	at ✽.The api user sends the "delete" request and saves the "Response"(file:///D:/Selenium%202023/buysellCyle_Project_API/src/test/resources/features/API/US_016.feature:23)
+]]></failure>
+    </testcase>
+</testsuite>
